@@ -25,7 +25,7 @@ static void generateTestCases()
     system("mkdir test_cases 2>nul");
 
     string filepath = "test_cases/test_";
-    vector<int> sizes = { 5, 10, 20, 40, 80 };
+    vector<int> sizes = { 5, 10, 15, 20, 30 };
 
     for (int i = 1; i <= 5; i++) 
     {
