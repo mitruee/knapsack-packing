@@ -53,7 +53,9 @@ static void generateTestCases()
 
 int main() {
 
-    generateTestCases();
+    // if you want to generate test files just once, you should erase/comment that line
+    generateTestCases(); // if you did this, please, do not push this change to remote repo
+    
 
     unordered_map < string, function<vector<vector<int>>(Knapsack)>> funcs;
     string test_dir = "test_cases/test_";
