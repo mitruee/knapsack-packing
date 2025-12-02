@@ -16,12 +16,12 @@ void Knapsack::fromFile(const string& filename) {
 
     vector<vector<int>> items;
     for (int i = 0; i < items_size; i++) {
+        int weight, value;
         file >> weight >> value;
         items.push_back({ weight, value });
     }
 
     file.close();
-    return Knapsack(items_size, capacity, items);
 }
 
 int Knapsack::getItemsSize() const { return items_size; }

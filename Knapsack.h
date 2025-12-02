@@ -11,7 +11,7 @@ private:
 
 	int items_size;
 	int capacity;
-	vector<vector<int>> items; // первый элемент - вес предмета, второй - стоимость
+	vector<vector<int>> items; // first element - weight, second - price
 
 public:
 
