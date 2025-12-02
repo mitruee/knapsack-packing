@@ -14,7 +14,6 @@ void Knapsack::fromFile(const string& filename) {
 
     file >> items_size >> capacity;
 
-    vector<vector<int>> items;
     for (int i = 0; i < items_size; i++) {
         int weight, value;
         file >> weight >> value;
