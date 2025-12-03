@@ -53,7 +53,9 @@ static void generateTestCases()
 
 int main() {
 
-    generateTestCases();
+    // if you want to generate test files just once, you should erase/comment that line
+    generateTestCases(); // if you did this, please, do not push this change to remote repo
+    
 
     unordered_map < string, function<vector<vector<int>>(Knapsack)>> funcs;
     string test_dir = "test_cases/test_";
@@ -61,7 +63,7 @@ int main() {
     funcs["dp_method"] = dp_method;
     funcs["greedy_method"] = greedy_method;
     funcs["bb_method"] = bb_method;    
-    funcs["fulsearch_method"] = fullsearch_method;
+    funcs["fullsearch_method"] = fullsearch_method;
 
     cout << "====================================" << endl;
     cout << "KNAPSACK PACKING METHODS COMPETITION" << endl;
@@ -91,7 +93,7 @@ int main() {
             auto end = chrono::high_resolution_clock::now();
             auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
 
-            cout << "Algorithm duration: " << duration.count() << endl << endl;
+            cout << "Algorithm duration: " << duration.count() << " ms" << endl << endl;
 
             cout << "* Packed knapsack *" << endl;
             cout << "  Weight | Price  " << endl;
