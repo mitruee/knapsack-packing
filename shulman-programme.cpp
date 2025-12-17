@@ -25,7 +25,7 @@ void generateTestCases()
     system("mkdir test_cases 2>nul");
 
     string filepath = "test_cases/test_";
-    vector<int> sizes = { 5, 10, 15, 20, 25 };
+    vector<int> sizes = { 5, 15, 22, 100, 1000 };
 
     for (int i = 1; i <= 5; i++) 
     {
@@ -62,7 +62,8 @@ int main() {
 
     funcs["dp_method"] = dp_method;
     funcs["greedy_method"] = greedy_method;
-    funcs["bb_method"] = bb_method;    
+    funcs["bb_method"] = bb_method;
+    funcs["fullsearch_method"] = fullsearch_method;   
 
     cout << "====================================" << endl;
     cout << "KNAPSACK PACKING METHODS COMPETITION" << endl;
@@ -70,17 +71,23 @@ int main() {
 
     for (int i = 1; i <= 5; i++)
     {
+        if (i == 4)
+        {
+            funcs.erase("fullsearch_method");
+        }
+        
         string test_path = test_dir + to_string(i) + ".txt";
         Knapsack knapsack;
         knapsack.fromFile(test_path);
 
+        
         cout << endl
         << "########################" << endl
         << "Filename: " << test_path << endl
         << "Number of elements: " << knapsack.getItemsSize() << endl
         << "Knapsack capacity: " << knapsack.getCapacity() << endl
         << "-------------------------" << endl;
-
+        
         for (const auto pair : funcs)
         {
             cout << "Method's name: " << pair.first << endl << endl;
