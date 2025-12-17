@@ -14,7 +14,7 @@
 
 using namespace std;
 
-static void generateTestCases() 
+void generateTestCases() 
 {
     auto now = chrono::system_clock::now();
     auto duration = now.time_since_epoch();
@@ -25,7 +25,7 @@ static void generateTestCases()
     system("mkdir test_cases 2>nul");
 
     string filepath = "test_cases/test_";
-    vector<int> sizes = { 5, 10, 15, 20, 30 };
+    vector<int> sizes = { 5, 10, 15, 20, 25 };
 
     for (int i = 1; i <= 5; i++) 
     {
@@ -63,7 +63,6 @@ int main() {
     funcs["dp_method"] = dp_method;
     funcs["greedy_method"] = greedy_method;
     funcs["bb_method"] = bb_method;    
-    funcs["fullsearch_method"] = fullsearch_method;
 
     cout << "====================================" << endl;
     cout << "KNAPSACK PACKING METHODS COMPETITION" << endl;
@@ -91,9 +90,9 @@ int main() {
             vector<vector<int>> result = pair.second(knapsack);
 
             auto end = chrono::high_resolution_clock::now();
-            auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
+            auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
 
-            cout << "Algorithm duration: " << duration.count() << " ms" << endl << endl;
+            cout << "Algorithm duration: " << duration.count() << " mcs" << endl << endl;
 
             cout << "* Packed knapsack *" << endl;
             cout << "  Weight | Price  " << endl;
