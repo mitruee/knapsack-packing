@@ -12,7 +12,6 @@ vector<vector<int>> fullsearch_method(Knapsack knapsack)
     int n = knapsack.getItemsSize();
     
     int maxValue = 0;
-    int maxWeight = 0;
     vector<int> bestItems; 
     
     int totalCombinations = 1 << n;
@@ -32,16 +31,12 @@ vector<vector<int>> fullsearch_method(Knapsack knapsack)
         
         if (currentWeight <= capacity && currentValue > maxValue) {
             maxValue = currentValue;
-            maxWeight = currentWeight;
-            bestItems = currentItems;
+            bestItems = currentItems;  // ← убрали maxWeight
         }
     }
       
     for (int idx : bestItems) {
-        vector<int> itemPair;
-        itemPair.push_back(items[idx][0]); 
-        itemPair.push_back(items[idx][1]); 
-        result.push_back(itemPair);
+        result.push_back({items[idx][0], items[idx][1]});
     }
     
     return result;
